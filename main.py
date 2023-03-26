@@ -1,9 +1,9 @@
 def on_button_pressed_a():
-    global SPEED
-    global RanArrow
+    SPEED = 13
+    RanArrow = randint(0, 8) 
     SPIN = True
     while SPIN:
-        SPEED = SPEED + 133
+        SPEED = SPEED + 75
         for index in range(8):
             #basic.show_number(index)
             basic.show_arrow(MyArrayOfArrows[index], SPEED)
@@ -17,11 +17,7 @@ def on_button_pressed_a():
 
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
-RanArrow = 0
-SPEED = 0
 basic.show_icon(IconNames.HEART)
-RanArrow = randint(0, 8)
-basic.show_number(RanArrow)
 MyArrayOfArrows = [ArrowNames.NORTH,
     ArrowNames.NORTH_EAST,
     ArrowNames.EAST,
