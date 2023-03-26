@@ -1,18 +1,27 @@
 def on_button_pressed_a():
     global SPEED
-    while SPEED < 600:
+    global RanArrow
+    SPIN = True
+    while SPIN:
+        SPEED = SPEED + 133
         for index in range(8):
+            #basic.show_number(index)
             basic.show_arrow(MyArrayOfArrows[index], SPEED)
             if  (index == RanArrow) and (SPEED > 600):
+                basic.show_arrow(MyArrayOfArrows[index])
                 SPEED = 0
+                SPIN= False 
                 break
-        SPEED = SPEED + 133
+                
+        
+
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 RanArrow = 0
 SPEED = 0
 basic.show_icon(IconNames.HEART)
 RanArrow = randint(0, 8)
+basic.show_number(RanArrow)
 MyArrayOfArrows = [ArrowNames.NORTH,
     ArrowNames.NORTH_EAST,
     ArrowNames.EAST,
